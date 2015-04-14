@@ -2,9 +2,7 @@ require 'formula'
 
 class Cgminer < Formula
   homepage 'https://github.com/ckolivas/cgminer'
-  head 'https://github.com/ckolivas/cgminer.git', :branch => 'master'
-  url 'https://github.com/ckolivas/cgminer/archive/v4.9.0.tar.gz'
-  sha1 'ca85290506184e03aabb8b16d13c5ec423f473fc'
+  url 'https://github.com/He1lQ/cgminer/archive/4.9-U3.tar.gz'
 
   depends_on 'autoconf' => :build
   depends_on 'automake' => :build
@@ -19,7 +17,8 @@ class Cgminer < Formula
     system "./autogen.sh", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "PKG_CONFIG_PATH=#{HOMEBREW_PREFIX}/opt/curl/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/jansson/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/libusb/lib/pkgconfig",
-                          "--enable-icarus"
+                          "--enable-icarus",
+                          "--enable-bmsc"
     system "make", "install"
   end
 
