@@ -3,8 +3,7 @@ require 'formula'
 class Bfgminer < Formula
   homepage 'https://github.com/luke-jr/bfgminer'
   head 'https://github.com/luke-jr/bfgminer.git', :branch => 'bfgminer'
-  url 'http://luke.dashjr.org/programs/bitcoin/files/bfgminer/5.1.0/bfgminer-5.1.0.zip'
-  sha1 '42ddaa11ee0bf21607222a93d3cc1210279e98f9'
+  url 'https://github.com/He1lQ/bfgminer/archive/pre-5.2.tar.gz'
 
   depends_on 'autoconf' => :build
   depends_on 'automake' => :build
@@ -22,10 +21,7 @@ class Bfgminer < Formula
     system "NOSUBMODULES=1 ./autogen.sh"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "PKG_CONFIG_PATH=#{HOMEBREW_PREFIX}/opt/curl/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/jansson/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/libmicrohttpd/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/libusb/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/hidapi/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/libevent/lib/pkgconfig",
-                          "--enable-scrypt",
-                          "--enable-keccak",
-                          "--enable-opencl"
+                          "PKG_CONFIG_PATH=#{HOMEBREW_PREFIX}/opt/curl/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/jansson/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/libmicrohttpd/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/libusb/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/hidapi/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/libevent/lib/pkgconfig
     system "make", "install"
   end
 
